@@ -59,7 +59,7 @@
         </section>
 
         <section class="contact-form-section">
-            <form class="contact-form">
+            <form action="/progear-hub/php/contact_process.php" method="POST" novalidate>
                 <h2>Send us a Message</h2>
                 
                 <div class="form-group">
@@ -99,7 +99,11 @@
                     <textarea id="message" rows="5" required></textarea>
                 </div>
                 
-                <button type="submit">Send Message</button>
+                <input type="text"   name="name"    required maxlength="255" />
+                <input type="email"  name="email"   required maxlength="255" />
+                <input type="text"   name="subject" required maxlength="255" />
+                <textarea name="message" required></textarea>
+                <button type="submit">Send</button>
             </form>
         </section>
     </main>
