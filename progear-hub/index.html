@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProGear Hub - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/burger-menu.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <header role="banner">
+        <div class="header-container">
+                    <div class="logo">
+            <img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo">
+        </div>
+                            <nav role="navigation" aria-label="Main navigation">
+            <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+            <ul class="nav-menu" role="menubar">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="orders.html">Orders</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+                    <div class="search-bar" role="search">
+            <label for="search-input" class="visually-hidden">Search products</label>
+            <input type="text" placeholder="Search products..." id="search-input" aria-describedby="search-btn">
+            <button type="button" id="search-btn" aria-label="Search for products">Search</button>
+        </div>
+        </div>
+    </header>
+
+    <main role="main" id="main-content">
+        <section class="hero" aria-labelledby="hero-title">
+            <img src="images/banner1.jpg" alt="Guy Bikking">
+            <h1 id="hero-title">Premium Sports Equipment</h1>
+            <p>Gear up for greatness with our professional-grade sports equipment</p>
+            <button aria-label="Shop now for premium sports equipment">Shop Now</button>
+        </section>
+
+        <section class="products" aria-labelledby="products-title">
+            <h2 id="products-title">Featured Products</h2>
+            <div class="product-grid" role="grid" aria-label="Featured products grid">
+                <div role="row">
+                    <div class="product" role="gridcell">
+                        <img src="images/featured1.jpg" alt="Professional soccer ball with black and white panels, perfect for competitive play">
+                        <h3>Professional Football</h3>
+                        <p>$45.99</p>
+                        <button aria-label="Add Professional Football to shopping cart for $45.99">Add to Cart</button>
+                    </div>
+                    <div class="product" role="gridcell">
+                        <img src="images/featured2.jpg" alt="Professional tennis racket with graphite frame and synthetic strings">
+                        <h3>Tennis Racket Pro</h3>
+                        <p>$89.99</p>
+                        <button aria-label="Add Tennis Racket Pro to shopping cart for $89.99">Add to Cart</button>
+                    </div>
+                    <div class="product" role="gridcell">
+                        <img src="images/featured3.jpg" alt="Competition swimwear with streamlined design for competitive swimming">
+                        <h3>Competition Swimwear</h3>
+                        <p>$34.99</p>
+                        <button aria-label="Add Competition Swimwear to shopping cart for $34.99">Add to Cart</button>
+                    </div>
+                    <div class="product" role="gridcell">
+                        <img src="https://images.pexels.com/photos/3628912/pexels-photo-3628912.jpeg" alt="Cricket bat and protective equipment including helmet and gloves">
+                        <h3>Cricket Bat Set</h3>
+                        <p>$75.99</p>
+                        <button aria-label="Add Cricket Bat Set to shopping cart for $75.99">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-offers" aria-labelledby="offers-title">
+            <h2 id="offers-title">Special Offers</h2>
+            <div class="offers-grid" role="grid" aria-label="Special offers grid">
+                <div role="row">
+                    <div class="offer-card teal" role="gridcell">
+                        <h3>Football Equipment Sale</h3>
+                        <p>Up to 40% off on all football gear</p>
+                        <button aria-label="Shop now for football equipment with up to 40% discount">Shop Now</button>
+                    </div>
+                    <div class="offer-card blue" role="gridcell">
+                        <h3>New Arrivals</h3>
+                        <p>Check out our latest products</p>
+                        <button aria-label="Explore new arrivals and latest products">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 ProGear Hub | All rights reserved</p>
+    </footer>
+</body>
+</html>
+
+ 

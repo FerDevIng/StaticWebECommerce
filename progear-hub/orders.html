@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProGear Hub - Orders</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/burger-menu.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+                    <div class="logo">
+            <img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo">
+        </div>
+            <nav role="navigation" aria-label="Main navigation">
+                <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                    <span class="burger-line"></span>
+                </button>
+                <ul class="nav-menu" role="menubar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="orders.html" class="active">Orders</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="Search products..." id="search-input">
+                <button type="button" id="search-btn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="order-form-section">
+            <form class="order-form">
+                <h2>Place Your Order</h2>
+                
+                <div class="form-group">
+                    <label for="firstName">First Name*</label>
+                    <input type="text" id="firstName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="lastName">Last Name*</label>
+                    <input type="text" id="lastName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number*</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Street Address*</label>
+                    <input type="text" id="address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City*</label>
+                    <input type="text" id="city" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="state">State*</label>
+                    <select id="state" required>
+                        <option value="">Select State</option>
+                        <option value="NSW">New South Wales</option>
+                        <option value="VIC">Victoria</option>
+                        <option value="QLD">Queensland</option>
+                        <option value="WA">Western Australia</option>
+                        <option value="SA">South Australia</option>
+                        <option value="TAS">Tasmania</option>
+                        <option value="ACT">Australian Capital Territory</option>
+                        <option value="NT">Northern Territory</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="postcode">Postcode*</label>
+                    <input type="text" id="postcode" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="instructions">Delivery Instructions</label>
+                    <textarea id="instructions" rows="3"></textarea>
+                </div>
+                
+                <button type="submit">Place Order</button>
+            </form>
+        </section>
+
+        <section class="order-history">
+            <h2>Order History</h2>
+            <div class="order-list">
+                <div class="order-item">
+                    <h3>Order #12345</h3>
+                    <p>Date: 15/01/2025</p>
+                    <p>Status: Delivered</p>
+                    <p>Total: $89.99</p>
+                </div>
+                <div class="order-item">
+                    <h3>Order #12344</h3>
+                    <p>Date: 10/01/2025</p>
+                    <p>Status: Shipped</p>
+                    <p>Total: $45.99</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 ProGear Hub | All rights reserved</p>
+    </footer>
+</body>
+</html>
+
+ 
