@@ -84,18 +84,44 @@
 <footer><p>&copy; 2025 ProGear Hub | All rights reserved</p></footer>
 
 <script>
+// Order Form JavaScript - Handles form validation and success/error messages
+
+// Parse URL parameters to check for success/error messages from PHP processing
+// These parameters are added by the PHP script after form submission
 const p = new URLSearchParams(location.search);
 const oa = document.getElementById('order-alert');
-function banner(cls, msg){const d=document.createElement('div');d.className='alert '+cls;d.textContent=msg;oa.appendChild(d);}
-if (p.get('placed') === '1') banner('alert-success','Your order was placed successfully.');
-if (p.get('error') === '1')  banner('alert-error','There was an error placing your order. Please check fields and try again.');
 
+// Function to create and display alert messages
+// Creates a div element with the specified CSS class and message text
+function banner(cls, msg){
+  const d = document.createElement('div');
+  d.className = 'alert ' + cls;
+  d.textContent = msg;
+  oa.appendChild(d);
+}
+
+// Display success or error messages based on URL parameters
+// These are set by the PHP script after processing the form
+if (p.get('placed') === '1') {
+  banner('alert-success', 'Your order was placed successfully.');
+}
+if (p.get('error') === '1') {
+  banner('alert-error', 'There was an error placing your order. Please check fields and try again.');
+}
+
+// Form validation - runs when user submits the form
 document.getElementById('orderForm').addEventListener('submit', function(e){
+  // Get numeric values from form fields
+  // parseInt() converts string to integer, parseFloat() converts to decimal number
+  // The second parameter (10) specifies base-10 for parseInt
   const qty = parseInt(document.getElementById('quantity').value, 10);
   const price = parseFloat(document.getElementById('price').value);
+  
+  // Validate that quantity is at least 1 and price is greater than 0
+  // This prevents invalid orders with zero or negative values
   if (!(qty >= 1) || !(price > 0)) {
-    e.preventDefault();
-    alert('Quantity must be >= 1 and price > 0.');
+    e.preventDefault(); // Prevent form submission
+    alert('Quantity must be >= 1 and price > 0.'); // Show error message
   }
 });
 </script>
