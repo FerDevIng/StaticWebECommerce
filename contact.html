@@ -1,214 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProGear Hub - Contact</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/burger-menu.js" defer></script>
-    <style>
-        .alert {
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-        .alert-success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        .alert-error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        .form-group.error input,
-        .form-group.error select,
-        .form-group.error textarea {
-            border-color: #dc3545;
-        }
-        .error-message {
-            color: #dc3545;
-            font-size: 0.875em;
-            margin-top: 5px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProGear Hub - Contact</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="js/burger-menu.js" defer></script>
+  <style>
+    .alert{padding:15px;margin:20px 0;border-radius:5px;font-weight:600}
+    .alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+    .alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+    .form-group.error input,.form-group.error select,.form-group.error textarea{border-color:#dc3545}
+    .error-message{color:#dc3545;font-size:.9em;margin-top:6px}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-                    <div class="logo">
-            <img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo">
-        </div>
-            <nav role="navigation" aria-label="Main navigation">
-                <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="burger-line"></span>
-                    <span class="burger-line"></span>
-                    <span class="burger-line"></span>
-                </button>
-                <ul class="nav-menu" role="menubar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="orders.html">Orders</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html" class="active">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search products..." id="search-input">
-                <button type="button" id="search-btn">Search</button>
-            </div>
-        </div>
-    </header>
+<header>
+  <div class="header-container">
+    <div class="logo"><img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo"></div>
+    <nav role="navigation" aria-label="Main navigation">
+      <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+      <ul class="nav-menu" role="menubar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="orders.html">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." id="search-input">
+      <button type="button" id="search-btn">Search</button>
+    </div>
+  </div>
+</header>
 
-    <main>
-        <section class="contact-info">
-            <h2>Contact Information</h2>
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <h3>Address</h3>
-                    <p>123 Sports Street<br>Sydney, NSW 2000<br>Australia</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Phone</h3>
-                    <p>+61 2 1234 5678</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p>info@progearhub.com</p>
-                </div>
-                <div class="contact-item">
-                    <h3>Hours</h3>
-                    <p>Monday - Friday: 9AM - 6PM<br>Saturday: 9AM - 4PM<br>Sunday: Closed</p>
-                </div>
-            </div>
-        </section>
+<main>
+  <section class="contact-info">
+    <h2>Contact Information</h2>
+    <div class="contact-grid">
+      <div class="contact-item"><h3>Address</h3><p>123 Sports Street<br>Sydney, NSW 2000<br>Australia</p></div>
+      <div class="contact-item"><h3>Phone</h3><p>+61 2 1234 5678</p></div>
+      <div class="contact-item"><h3>Email</h3><p>info@progearhub.com</p></div>
+      <div class="contact-item"><h3>Hours</h3><p>Mon–Fri: 9–6 • Sat: 9–4 • Sun: Closed</p></div>
+    </div>
+  </section>
 
-        <section class="contact-form-section">
-            <form action="/progear-hub/php/contact_process.php" method="POST" id="contactForm">
-                <h2>Send us a Message</h2>
-                
-                <div id="alert-container"></div>
-                                
-                <div class="form-group">
-                    <label for="name">Name*</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address*</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                             
-                <div class="form-group">
-                    <label for="subject">Subject*</label>
-                    <select id="subject" name="subject" required>
-                        <option value="">Select a subject</option>
-                        <option value="general">General Inquiry</option>
-                        <option value="product">Product Information</option>
-                        <option value="order">Order Status</option>
-                        <option value="return">Returns & Exchanges</option>
-                        <option value="feedback">Feedback</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message*</label>
-                    <textarea id="message" name="message" rows="3" required></textarea>
-                </div>
+  <section class="contact-form-section">
+    <!-- IMPORTANT FOR XAMPP: use RELATIVE action (no leading /) -->
+    <form action="php/contact_process.php" method="POST" id="contactForm" class="contact-form" novalidate>
+      <h2>Send us a Message</h2>
 
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </main>
+      <div id="alert-container"></div>
 
-    <footer>
-        <p>&copy; 2025 ProGear Hub | All rights reserved</p>
-    </footer>
+      <div class="form-group">
+        <label for="name">Name*</label>
+        <input type="text" id="name" name="name" required maxlength="255"/>
+      </div>
 
-    <script>
-        // Check for URL parameters to show success/error messages
-        const urlParams = new URLSearchParams(window.location.search);
-        const alertContainer = document.getElementById('alert-container');
-        
-        if (urlParams.get('sent') === '1') {
-            const successDiv = document.createElement('div');
-            successDiv.className = 'alert alert-success';
-            successDiv.textContent = 'Thank you for your message! We will get back to you soon.';
-            alertContainer.appendChild(successDiv);
-        }
-        
-        if (urlParams.get('error') === '1') {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'alert alert-error';
-            errorDiv.textContent = 'There was an error sending your message. Please try again.';
-            alertContainer.appendChild(errorDiv);
-        }
+      <div class="form-group">
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="email" required maxlength="255"/>
+      </div>
 
-        // Form validation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const subject = document.getElementById('subject').value.trim();
-            const message = document.getElementById('message').value.trim();
-            
-            let hasErrors = false;
-            
-            // Clear previous error states
-            document.querySelectorAll('.form-group').forEach(group => {
-                group.classList.remove('error');
-                const errorMsg = group.querySelector('.error-message');
-                if (errorMsg) errorMsg.remove();
-            });
-            
-            // Validate name
-            if (name === '' || name.length > 255) {
-                showFieldError('name', 'Please enter a valid name (max 255 characters)');
-                hasErrors = true;
-            }
-            
-            // Validate email
-            if (!isValidEmail(email) || email.length > 255) {
-                showFieldError('email', 'Please enter a valid email address');
-                hasErrors = true;
-            }
-            
-            // Validate subject
-            if (subject === '') {
-                showFieldError('subject', 'Please select a subject');
-                hasErrors = true;
-            }
-            
-            // Validate message
-            if (message === '' || message.length > 1000) {
-                showFieldError('message', 'Please enter a message (max 1000 characters)');
-                hasErrors = true;
-            }
-            
-            if (hasErrors) {
-                e.preventDefault();
-            }
-        });
-        
-        function showFieldError(fieldId, message) {
-            const field = document.getElementById(fieldId);
-            const formGroup = field.closest('.form-group');
-            formGroup.classList.add('error');
-            
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = message;
-            formGroup.appendChild(errorDiv);
-        }
-        
-        function isValidEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-    </script>
+      <div class="form-group">
+        <label for="subject">Subject*</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select a subject</option>
+          <option value="general">General Inquiry</option>
+          <option value="product">Product Information</option>
+          <option value="order">Order Status</option>
+          <option value="return">Returns & Exchanges</option>
+          <option value="feedback">Feedback</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message*</label>
+        <textarea id="message" name="message" rows="4" required maxlength="1000"></textarea>
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</main>
+
+<footer><p>&copy; 2025 ProGear Hub | All rights reserved</p></footer>
+
+<script>
+const urlParams = new URLSearchParams(window.location.search);
+const alertContainer = document.getElementById('alert-container');
+function banner(cls, msg){const d=document.createElement('div');d.className='alert '+cls;d.textContent=msg;alertContainer.appendChild(d);}
+if (urlParams.get('sent') === '1')  banner('alert-success','Thanks! Your message was sent.');
+if (urlParams.get('error') === '1') banner('alert-error','There was an error. Please fill all required fields.');
+
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  const errs = [];
+  const name = document.getElementById('name').value.trim();
+  const email= document.getElementById('email').value.trim();
+  const subject=document.getElementById('subject').value.trim();
+  const message=document.getElementById('message').value.trim();
+
+  document.querySelectorAll('.form-group').forEach(g=>{g.classList.remove('error'); const em=g.querySelector('.error-message'); if(em) em.remove();});
+  function err(id,msg){const f=document.getElementById(id);const g=f.closest('.form-group');g.classList.add('error');const em=document.createElement('div');em.className='error-message';em.textContent=msg;g.appendChild(em); errs.push(msg);}
+
+  if(!name || name.length>255) err('name','Please enter a valid name (max 255).');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || email.length>255) err('email','Please enter a valid email.');
+  if(!subject) err('subject','Please select a subject.');
+  if(!message || message.length>1000) err('message','Please enter a message (max 1000).');
+
+  if(errs.length){ e.preventDefault(); }
+});
+</script>
 </body>
 </html>
-
- 

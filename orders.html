@@ -1,132 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProGear Hub - Orders</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/burger-menu.js" defer></script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProGear Hub - Orders</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script src="js/burger-menu.js" defer></script>
+  <style>
+    .alert{padding:15px;margin:20px 0;border-radius:5px;font-weight:600}
+    .alert-success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+    .alert-error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-                    <div class="logo">
-            <img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo">
-        </div>
-            <nav role="navigation" aria-label="Main navigation">
-                <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
-                    <span class="burger-line"></span>
-                    <span class="burger-line"></span>
-                    <span class="burger-line"></span>
-                </button>
-                <ul class="nav-menu" role="menubar">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="shop.html">Shop</a></li>
-                    <li><a href="orders.html" class="active">Orders</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="blog.html">Blog</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="search-bar">
-                <input type="text" placeholder="Search products..." id="search-input">
-                <button type="button" id="search-btn">Search</button>
-            </div>
-        </div>
-    </header>
+<header>
+  <div class="header-container">
+    <div class="logo"><img src="images/logo.png" alt="ProGear Hub - Premium Sports Equipment Store Logo"></div>
+    <nav role="navigation" aria-label="Main navigation">
+      <button class="burger-menu" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+      <ul class="nav-menu" role="menubar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="orders.html" class="active">Orders</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" placeholder="Search products..." id="search-input">
+      <button type="button" id="search-btn">Search</button>
+    </div>
+  </div>
+</header>
 
-    <main>
-        <section class="order-form-section">
-            <form action="/progear-hub/php/order_process.php" method="POST">
-                <h2>Place Your Order</h2>
-                
-                <div class="form-group">
-                    <label for="firstName">First Name*</label>
-                    <input type="text" id="firstName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="lastName">Last Name*</label>
-                    <input type="text" id="lastName" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address*</label>
-                    <input type="email" id="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number*</label>
-                    <input type="tel" id="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address">Street Address*</label>
-                    <input type="text" id="address" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="city">City*</label>
-                    <input type="text" id="city" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="state">State*</label>
-                    <select id="state" required>
-                        <option value="">Select State</option>
-                        <option value="NSW">New South Wales</option>
-                        <option value="VIC">Victoria</option>
-                        <option value="QLD">Queensland</option>
-                        <option value="WA">Western Australia</option>
-                        <option value="SA">South Australia</option>
-                        <option value="TAS">Tasmania</option>
-                        <option value="ACT">Australian Capital Territory</option>
-                        <option value="NT">Northern Territory</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="postcode">Postcode*</label>
-                    <input type="text" id="postcode" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="instructions">Delivery Instructions</label>
-                    <textarea id="instructions" rows="3"></textarea>
-                </div>
-                
-                <input type="text"   name="customer_name" required maxlength="255" />
-                <input type="email"  name="email"         required maxlength="255" />
-                <input type="text"   name="product_name"  required maxlength="255" />
-                <input type="number" name="quantity"      min="1" step="1"    required />
-                <input type="number" name="price"         min="0.01" step="0.01" required />
-                <button type="submit">Place Order</button>
-            </form>
-        </section>
+<main>
+  <section class="order-form">
+    <h2>Place Your Order</h2>
+    <div id="order-alert"></div>
 
-        <section class="order-history">
-            <h2>Order History</h2>
-            <div class="order-list">
-                <div class="order-item">
-                    <h3>Order #12345</h3>
-                    <p>Date: 15/01/2025</p>
-                    <p>Status: Delivered</p>
-                    <p>Total: $89.99</p>
-                </div>
-                <div class="order-item">
-                    <h3>Order #12344</h3>
-                    <p>Date: 10/01/2025</p>
-                    <p>Status: Shipped</p>
-                    <p>Total: $45.99</p>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- IMPORTANT FOR XAMPP: use RELATIVE action (no leading /) -->
+    <form action="php/order_process.php" method="POST" id="orderForm" novalidate>
+      <div class="form-group">
+        <label for="customer_name">Customer Name*</label>
+        <input type="text" id="customer_name" name="customer_name" required maxlength="255"/>
+      </div>
 
-    <footer>
-        <p>&copy; 2025 ProGear Hub | All rights reserved</p>
-    </footer>
+      <div class="form-group">
+        <label for="email">Email Address*</label>
+        <input type="email" id="email" name="email" required maxlength="255"/>
+      </div>
+
+      <div class="form-group">
+        <label for="product_name">Product Name*</label>
+        <input type="text" id="product_name" name="product_name" required maxlength="255"/>
+      </div>
+
+      <div class="form-group">
+        <label for="quantity">Quantity*</label>
+        <input type="number" id="quantity" name="quantity" min="1" step="1" required/>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Unit Price (AUD)*</label>
+        <input type="number" id="price" name="price" min="0.01" step="0.01" required/>
+      </div>
+
+      <button type="submit">Place Order</button>
+    </form>
+  </section>
+
+  <section class="order-history">
+    <h2>Sample Orders</h2>
+    <div class="order-list">
+      <div class="order-item"><h3>Order #12345</h3><p>Status: Delivered</p><p>Total: $89.99</p></div>
+      <div class="order-item"><h3>Order #12344</h3><p>Status: Shipped</p><p>Total: $45.99</p></div>
+    </div>
+  </section>
+</main>
+
+<footer><p>&copy; 2025 ProGear Hub | All rights reserved</p></footer>
+
+<script>
+const p = new URLSearchParams(location.search);
+const oa = document.getElementById('order-alert');
+function banner(cls, msg){const d=document.createElement('div');d.className='alert '+cls;d.textContent=msg;oa.appendChild(d);}
+if (p.get('placed') === '1') banner('alert-success','Your order was placed successfully.');
+if (p.get('error') === '1')  banner('alert-error','There was an error placing your order. Please check fields and try again.');
+
+document.getElementById('orderForm').addEventListener('submit', function(e){
+  const qty = parseInt(document.getElementById('quantity').value, 10);
+  const price = parseFloat(document.getElementById('price').value);
+  if (!(qty >= 1) || !(price > 0)) {
+    e.preventDefault();
+    alert('Quantity must be >= 1 and price > 0.');
+  }
+});
+</script>
 </body>
 </html>
-
- 

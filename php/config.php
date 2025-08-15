@@ -1,13 +1,11 @@
 <?php
-// php/config.php
-$DB_HOST = 'localhost';
+// Show MySQLi errors as exceptions (so you actually see the problem)
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+$DB_HOST = 'localhost';   // XAMPP default
 $DB_USER = 'root';
-$DB_PASS = '';
-$DB_NAME = 'ProGearHub';
+$DB_PASS = '1245';        // <-- your root password
+$DB_NAME = 'ProGearHub';  // matches the SQL above
 
 $mysqli = new mysqli($DB_HOST, $DB_USER, $DB_PASS, $DB_NAME);
-if ($mysqli->connect_errno) {
-  http_response_code(500);
-  die('DB connection failed: ' . $mysqli->connect_error);
-}
 $mysqli->set_charset('utf8mb4');
