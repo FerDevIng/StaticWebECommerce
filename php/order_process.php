@@ -28,6 +28,40 @@ $product_name  = trim($_POST['product_name'] ?? '');
 $quantity      = (int)($_POST['quantity'] ?? 0);
 $price         = (float)($_POST['price'] ?? 0);
 
+// Input validation for data integrity
+// Check field lengths match database constraints
+if (strlen($customer_name) > 100) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
+if (strlen($email) > 255) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
+if (strlen($product_name) > 150) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
+// Validate email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
+// Validate numeric values
+if ($quantity < 1 || $quantity > 999999) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
+if ($price <= 0 || $price > 999999.99) {
+  header('Location: ../orders.html?error=1');
+  exit;
+}
+
 // Validation: Check if all required fields are filled and numeric values are valid
 // Empty strings evaluate to false in PHP
 // Quantity must be at least 1, price must be greater than 0

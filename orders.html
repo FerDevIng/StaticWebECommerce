@@ -45,27 +45,27 @@
     <form action="php/order_process.php" method="POST" id="orderForm" novalidate>
       <div class="form-group">
         <label for="customer_name">Customer Name*</label>
-        <input type="text" id="customer_name" name="customer_name" required maxlength="255"/>
+        <input type="text" id="customer_name" name="customer_name" required maxlength="100" pattern="[A-Za-z\s]+" title="Please enter a valid name (letters and spaces only)"/>
       </div>
 
       <div class="form-group">
         <label for="email">Email Address*</label>
-        <input type="email" id="email" name="email" required maxlength="255"/>
+        <input type="email" id="email" name="email" required maxlength="255" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address"/>
       </div>
 
       <div class="form-group">
         <label for="product_name">Product Name*</label>
-        <input type="text" id="product_name" name="product_name" required maxlength="255"/>
+        <input type="text" id="product_name" name="product_name" required maxlength="150" pattern="[A-Za-z0-9\s\-\.]+" title="Please enter a valid product name"/>
       </div>
 
       <div class="form-group">
         <label for="quantity">Quantity*</label>
-        <input type="number" id="quantity" name="quantity" min="1" step="1" required/>
+        <input type="number" id="quantity" name="quantity" min="1" max="999999" step="1" required title="Quantity must be between 1 and 999,999"/>
       </div>
 
       <div class="form-group">
         <label for="price">Unit Price (AUD)*</label>
-        <input type="number" id="price" name="price" min="0.01" step="0.01" required/>
+        <input type="number" id="price" name="price" min="0.01" max="999999.99" step="0.01" required title="Price must be between $0.01 and $999,999.99"/>
       </div>
 
       <button type="submit">Place Order</button>
@@ -111,17 +111,46 @@ if (p.get('error') === '1') {
 
 // Form validation - runs when user submits the form
 document.getElementById('orderForm').addEventListener('submit', function(e){
-  // Get numeric values from form fields
-  // parseInt() converts string to integer, parseFloat() converts to decimal number
-  // The second parameter (10) specifies base-10 for parseInt
+  // Get form field values
+  const customerName = document.getElementById('customer_name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const productName = document.getElementById('product_name').value.trim();
   const qty = parseInt(document.getElementById('quantity').value, 10);
   const price = parseFloat(document.getElementById('price').value);
   
-  // Validate that quantity is at least 1 and price is greater than 0
-  // This prevents invalid orders with zero or negative values
-  if (!(qty >= 1) || !(price > 0)) {
-    e.preventDefault(); // Prevent form submission
-    alert('Quantity must be >= 1 and price > 0.'); // Show error message
+  // Validate customer name (letters and spaces only, max 100 characters)
+  if (!customerName || customerName.length > 100 || !/^[A-Za-z\s]+$/.test(customerName)) {
+    e.preventDefault();
+    alert('Please enter a valid customer name (letters and spaces only, max 100 characters).');
+    return;
+  }
+  
+  // Validate email format
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    e.preventDefault();
+    alert('Please enter a valid email address.');
+    return;
+  }
+  
+  // Validate product name (letters, numbers, spaces, hyphens, dots, max 150 characters)
+  if (!productName || productName.length > 150 || !/^[A-Za-z0-9\s\-\.]+$/.test(productName)) {
+    e.preventDefault();
+    alert('Please enter a valid product name (max 150 characters).');
+    return;
+  }
+  
+  // Validate quantity (1 to 999,999)
+  if (!(qty >= 1 && qty <= 999999)) {
+    e.preventDefault();
+    alert('Quantity must be between 1 and 999,999.');
+    return;
+  }
+  
+  // Validate price (0.01 to 999,999.99)
+  if (!(price > 0 && price <= 999999.99)) {
+    e.preventDefault();
+    alert('Price must be between $0.01 and $999,999.99.');
+    return;
   }
 });
 </script>

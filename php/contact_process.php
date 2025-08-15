@@ -23,6 +23,34 @@ $email   = trim($_POST['email'] ?? '');
 $subject = trim($_POST['subject'] ?? '');
 $message = trim($_POST['message'] ?? '');
 
+// Input validation for data integrity
+// Check field lengths match database constraints
+if (strlen($name) > 100) {
+  header('Location: ../contact.html?error=1');
+  exit;
+}
+
+if (strlen($email) > 255) {
+  header('Location: ../contact.html?error=1');
+  exit;
+}
+
+if (strlen($subject) > 100) {
+  header('Location: ../contact.html?error=1');
+  exit;
+}
+
+if (strlen($message) > 65535) { // TEXT field max length
+  header('Location: ../contact.html?error=1');
+  exit;
+}
+
+// Validate email format
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  header('Location: ../contact.html?error=1');
+  exit;
+}
+
 // Validation: Check if all required fields are filled
 // Empty strings evaluate to false in PHP
 // If any field is empty, redirect back to form with error parameter
